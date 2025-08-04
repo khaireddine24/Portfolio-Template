@@ -38,6 +38,7 @@ export const Navbar = () => {
   const mobileMenuVariants = {
     closed: {
       x: "100%",
+      opacity: 0,
       transition: {
         duration: 0.3,
         ease: "easeInOut"
@@ -45,6 +46,7 @@ export const Navbar = () => {
     },
     open: {
       x: 0,
+      opacity: 1,
       transition: {
         duration: 0.3,
         ease: "easeInOut",
@@ -67,7 +69,7 @@ export const Navbar = () => {
     closed: { opacity: 0 },
     open: { 
       opacity: 1,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.3 }
     }
   };
 
@@ -91,7 +93,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo/Title */}
           <motion.a 
-            className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent relative overflow-hidden"
+            className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent relative overflow-hidden"
             href="/"
             variants={itemVariants}
             whileHover={{ 
@@ -223,7 +225,7 @@ export const Navbar = () => {
           <>
             {/* Overlay */}
             <motion.div 
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 md:hidden"
               variants={overlayVariants}
               initial="closed"
               animate="open"
@@ -233,16 +235,17 @@ export const Navbar = () => {
             
             {/* Menu Panel */}
             <motion.div 
-              className="fixed top-0 right-0 h-full w-80 bg-gray-900/95 backdrop-blur-xl z-50 md:hidden border-l border-white/10 shadow-2xl"
+              className="fixed top-0 right-0 h-full w-full max-w-sm bg-gray-900/98 backdrop-blur-xl z-50 md:hidden border-l border-white/20 shadow-2xl"
               variants={mobileMenuVariants}
               initial="closed"
               animate="open"
               exit="closed"
             >
-              <div className="p-6 space-y-6">
+              {/* Mobile Menu Content */}
+              <div className="h-full flex flex-col">
                 {/* Mobile Menu Header */}
                 <motion.div 
-                  className="flex items-center justify-between border-b border-white/10 pb-4"
+                  className="flex items-center justify-between p-6 border-b border-white/10"
                   variants={mobileItemVariants}
                 >
                   <motion.span 
@@ -260,10 +263,10 @@ export const Navbar = () => {
                   </motion.span>
                   <motion.button
                     onClick={() => setMenuOpen(false)}
-                    className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center"
+                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
                     whileHover={{ 
                       scale: 1.1,
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)'
+                      backgroundColor: 'rgba(255, 255, 255, 0.2)'
                     }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -282,50 +285,57 @@ export const Navbar = () => {
                 </motion.div>
                 
                 {/* Mobile Menu Items */}
-                <motion.div className="space-y-4">
-                  {['About', 'Experience', 'Projects'].map((item, index) => (
+                <div className="flex-1 px-6 py-8">
+                  <motion.div className="space-y-6">
+                    {['About', 'Experience', 'Projects'].map((item, index) => (
+                      <motion.a
+                        key={item}
+                        href={`#${item.toLowerCase()}`}
+                        className="block text-xl font-medium text-white/90 hover:text-white p-4 rounded-xl hover:bg-white/10 transition-all duration-300 relative overflow-hidden group"
+                        onClick={() => setMenuOpen(false)}
+                        variants={mobileItemVariants}
+                        whileHover={{ 
+                          x: 10,
+                          backgroundColor: 'rgba(255, 255, 255, 0.15)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <motion.div
+                          className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-400 rounded-r"
+                          initial={{ height: 0 }}
+                          whileHover={{ height: '100%' }}
+                          transition={{ duration: 0.3 }}
+                        />
+                        <span className="relative z-10">{item}</span>
+                      </motion.a>
+                    ))}
+                  </motion.div>
+                  
+                  {/* Contact Button in Mobile */}
+                  <motion.div 
+                    className="pt-8"
+                    variants={mobileItemVariants}
+                  >
                     <motion.a
-                      key={item}
-                      href={`#${item.toLowerCase()}`}
-                      className="block text-lg font-medium text-white/90 hover:text-white p-3 rounded-lg hover:bg-white/10 transition-all duration-300 relative overflow-hidden group"
+                      href="#contact"
+                      className="block bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group"
                       onClick={() => setMenuOpen(false)}
-                      variants={mobileItemVariants}
                       whileHover={{ 
-                        x: 10,
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                        scale: 1.02,
+                        boxShadow: "0 10px 30px rgba(59, 130, 246, 0.4)"
                       }}
-                      whileTap={{ scale: 0.95 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <motion.div
-                        className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-400"
-                        initial={{ height: 0 }}
-                        whileHover={{ height: '100%' }}
+                        className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500"
+                        initial={{ x: '-100%' }}
+                        whileHover={{ x: 0 }}
                         transition={{ duration: 0.3 }}
                       />
-                      {item}
+                      <span className="relative z-10">Contact Me</span>
                     </motion.a>
-                  ))}
-                  
-                  <motion.a
-                    href="#contact"
-                    className="block bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-lg font-semibold transition-all duration-300 mt-6 relative overflow-hidden group"
-                    onClick={() => setMenuOpen(false)}
-                    variants={mobileItemVariants}
-                    whileHover={{ 
-                      scale: 1.02,
-                      boxShadow: "0 10px 30px rgba(59, 130, 246, 0.4)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: 0 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <span className="relative z-10">Contact</span>
-                  </motion.a>
-                </motion.div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </>

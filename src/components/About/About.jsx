@@ -99,31 +99,7 @@ export const About = () => {
         
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
-          {/* About Image */}
-          <motion.div 
-            className="flex-shrink-0 relative group"
-            variants={imageVariants}
-          >
-            <motion.div 
-              className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"
-              animate={{
-                scale: [1, 1.05, 1],
-                rotate: [0, 1, 0]
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.img
-              src={getImageUrl("hero/user-image.jpg")}
-              alt="Me sitting with a laptop"
-              className="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-300"
-              whileHover={{ 
-                scale: 1.05,
-                rotateY: 5,
-                rotateX: 5
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
+         
           
           {/* About Items */}
           <div className="flex-1 space-y-8">

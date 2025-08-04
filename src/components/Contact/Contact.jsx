@@ -139,7 +139,7 @@ export const Contact = () => {
             className="flex-1 max-w-md w-full"
             variants={containerVariants}
           >
-            <ul className="space-y-6">
+            <ul className="space-y-4 sm:space-y-6">
               
               {/* Email Link */}
               <motion.li 
@@ -148,7 +148,7 @@ export const Contact = () => {
               >
                 <motion.a 
                   href="mailto:myemail@email.com"
-                  className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/10 hover:border-red-400/50 transition-all duration-300 hover:transform hover:scale-105"
                   whileHover={{ 
                     scale: 1.02,
                     boxShadow: "0 10px 30px rgba(239, 68, 68, 0.2)"
@@ -156,27 +156,27 @@ export const Contact = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <motion.div 
-                    className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
                     whileHover={{ rotate: 5 }}
                   >
                     <img 
                       src={getImageUrl("contact/emailIcon.png")} 
                       alt="Email icon"
-                      className="w-6 h-6 filter brightness-0 invert"
+                      className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert"
                     />
                   </motion.div>
-                  <div className="flex-1">
-                    <span className="text-white text-lg font-medium group-hover:text-blue-300 transition-colors duration-300">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white text-base sm:text-lg font-medium group-hover:text-red-300 transition-colors duration-300 truncate">
                       myemail@email.com
-                    </span>
-                    <div className="text-gray-400 text-sm">Send me an email</div>
+                    </div>
+                    <div className="text-gray-400 text-xs sm:text-sm">Send me an email</div>
                   </div>
                   <motion.div 
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0"
                     initial={{ x: -10 }}
                     whileHover={{ x: 0 }}
                   >
-                    <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </motion.div>
@@ -192,7 +192,7 @@ export const Contact = () => {
                   href="https://www.linkedin.com/myname"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105"
                   whileHover={{ 
                     scale: 1.02,
                     boxShadow: "0 10px 30px rgba(59, 130, 246, 0.2)"
@@ -200,27 +200,27 @@ export const Contact = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <motion.div 
-                    className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
                     whileHover={{ rotate: -5 }}
                   >
                     <img 
                       src={getImageUrl("contact/linkedinIcon.png")} 
                       alt="LinkedIn icon"
-                      className="w-6 h-6 filter brightness-0 invert"
+                      className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert"
                     />
                   </motion.div>
-                  <div className="flex-1">
-                    <span className="text-white text-lg font-medium group-hover:text-blue-300 transition-colors duration-300">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white text-base sm:text-lg font-medium group-hover:text-blue-300 transition-colors duration-300 truncate">
                       linkedin.com/myname
-                    </span>
-                    <div className="text-gray-400 text-sm">Let's connect professionally</div>
+                    </div>
+                    <div className="text-gray-400 text-xs sm:text-sm">Let's connect professionally</div>
                   </div>
                   <motion.div 
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0"
                     initial={{ x: -10 }}
                     whileHover={{ x: 0 }}
                   >
-                    <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </motion.div>
@@ -236,7 +236,7 @@ export const Contact = () => {
                   href="https://www.github.com/myname"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:transform hover:scale-105"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:transform hover:scale-105"
                   whileHover={{ 
                     scale: 1.02,
                     boxShadow: "0 10px 30px rgba(147, 51, 234, 0.2)"
@@ -244,27 +244,27 @@ export const Contact = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <motion.div 
-                    className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
                     whileHover={{ rotate: 5 }}
                   >
                     <img 
                       src={getImageUrl("contact/githubIcon.png")} 
                       alt="Github icon"
-                      className="w-6 h-6 filter brightness-0 invert"
+                      className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert"
                     />
                   </motion.div>
-                  <div className="flex-1">
-                    <span className="text-white text-lg font-medium group-hover:text-purple-300 transition-colors duration-300">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white text-base sm:text-lg font-medium group-hover:text-purple-300 transition-colors duration-300 truncate">
                       github.com/myname
-                    </span>
-                    <div className="text-gray-400 text-sm">Check out my repositories</div>
+                    </div>
+                    <div className="text-gray-400 text-xs sm:text-sm">Check out my repositories</div>
                   </div>
                   <motion.div 
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0"
                     initial={{ x: -10 }}
                     whileHover={{ x: 0 }}
                   >
-                    <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </motion.div>

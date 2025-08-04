@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
 import { getImageUrl } from "../../utils";
 
+
 export const Hero = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -70,7 +71,7 @@ export const Hero = () => {
       <div className="absolute inset-0">
         {/* Top blur effect */}
         <motion.div 
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-3xl"
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -81,7 +82,7 @@ export const Hero = () => {
         
         {/* Bottom blur effect */}
         <motion.div 
-          className="absolute bottom-0 right-1/2 transform translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+          className="absolute bottom-0 right-1/2 transform translate-x-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -131,21 +132,21 @@ export const Hero = () => {
 
       {/* Main Content Container */}
       <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
+        className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-20 pt-20 lg:pt-0"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         
         {/* Content Section */}
-        <div className="flex-1 text-center lg:text-left space-y-8">
+        <div className="flex-1 text-center lg:text-left space-y-6 lg:space-y-8 order-2 lg:order-1">
           {/* Main Title */}
-          <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+          <motion.h1 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
             variants={textVariants}
           >
             <motion.span 
-              className="text-white"
+              className="text-white block lg:inline"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -153,9 +154,9 @@ export const Hero = () => {
               Hi, I'm{" "}
             </motion.span>
             <motion.span 
-              className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: 20,backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'], }}
-              animate={{ opacity: 1, x: 0,backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'], }}
+              className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block lg:inline"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               style={{
                 backgroundImage: 'linear-gradient(90deg, #60a5fa, #a855f7, #ec4899, #60a5fa)',
@@ -166,18 +167,17 @@ export const Hero = () => {
               }}
             >
               <ReactTyped
-                  strings={['Fouleni Flen']}
-                  typeSpeed={70}
-                  backSpeed={60}
-                  loop
-                />
-             
+                strings={['Fouleni Flen']}
+                typeSpeed={70}
+                backSpeed={60}
+                loop
+              />
             </motion.span>
-          </motion.h2>
+          </motion.h1>
           
           {/* Description */}
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             variants={textVariants}
             transition={{ delay: 0.3 }}
           >
@@ -200,15 +200,16 @@ export const Hero = () => {
             using React and NodeJS. Reach out if you'd like to learn more!
           </motion.p>
           
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div 
-            className="pt-4"
+            className="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             variants={buttonVariants}
             transition={{ delay: 0.5 }}
           >
+            {/* Contact Me Button */}
             <motion.a 
               href="mailto:myemail@email.com" 
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:from-blue-500 hover:to-purple-500 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25"
+              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:from-blue-500 hover:to-purple-500 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)"
@@ -223,7 +224,7 @@ export const Hero = () => {
               
               {/* Arrow icon */}
               <motion.svg 
-                className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+                className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -233,17 +234,47 @@ export const Hero = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </motion.svg>
             </motion.a>
+
+            {/* Download CV Button */}
+            <motion.a 
+              href="/path-to-your-cv.pdf" 
+              download="Fouleni_Flen_CV.pdf"
+              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-500 hover:to-pink-500 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 25px 50px rgba(168, 85, 247, 0.3)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10">Download CV</span>
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                whileHover={{ opacity: 0.2 }}
+              />
+              
+              {/* Download icon */}
+              <motion.svg 
+                className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-y-1 transition-transform duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                whileHover={{ y: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </motion.svg>
+            </motion.a>
           </motion.div>
           
           {/* Tech Stack Indicators */}
           <motion.div 
-            className="flex flex-wrap justify-center lg:justify-start gap-4 pt-8"
+            className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-6 lg:pt-8"
             variants={techStackVariants}
           >
             {['React', 'Node.js', 'Full-Stack'].map((tech, index) => (
               <motion.div
                 key={tech}
-                className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-gray-300 hover:bg-white/20 transition-colors duration-300"
+                className="px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-gray-300 hover:bg-white/20 transition-colors duration-300"
                 variants={techItemVariants}
                 whileHover={{ 
                   scale: 1.05, 
@@ -260,12 +291,12 @@ export const Hero = () => {
         
         {/* Hero Image */}
         <motion.div 
-          className="flex-shrink-0 relative group"
+          className="flex-shrink-0 relative group order-1 lg:order-2"
           variants={imageVariants}
         >
           {/* Glow effect behind image */}
           <motion.div 
-            className="absolute -inset-8 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+            className="absolute -inset-6 sm:-inset-8 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 360],
@@ -279,7 +310,7 @@ export const Hero = () => {
             <motion.img
               src={getImageUrl("hero/user-image.jpg")}
               alt="Hero image of me"
-              className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] object-cover rounded-full border-4 border-white/20 shadow-2xl transform group-hover:scale-105 transition-all duration-500 hover:border-blue-400/50"
+              className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] object-cover rounded-full border-4 border-white/20 shadow-2xl transform group-hover:scale-105 transition-all duration-500 hover:border-blue-400/50"
               whileHover={{ 
                 scale: 1.05,
                 borderColor: 'rgba(96, 165, 250, 0.5)'
@@ -304,7 +335,7 @@ export const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.8 }}
